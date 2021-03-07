@@ -2,7 +2,7 @@
 
 It's a restful api with Jwt Authentication using Laravel Lumen.
 
-use php -S localhost:8000 -t public to run the api
+use "php -S localhost:8000 -t" public to run the api
 
 ## End point
 
