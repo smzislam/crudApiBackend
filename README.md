@@ -1,6 +1,6 @@
 # crudApiBackend using Lumen PHP Framework
 
-It's a restful api with Jwt Authentication using Larave Lumen.
+It's a restful api with Jwt Authentication using Laravel Lumen.
 
 use php -S localhost:8000 -t public to run the api
 
