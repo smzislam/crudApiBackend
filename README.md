@@ -1,24 +1,31 @@
-# Lumen PHP Framework
+# crudApiBackend using Lumen PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+It's a restful api with Jwt Authentication using Larave Lumen.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+use php -S localhost:8000 -t public to run the api
 
-## Official Documentation
+## End point
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+# To create user: http://localhost:8000/api/register, method: post
+{
+    "name":"xxx",
+    "email":"xxx@gmail.com",
+    "password":"xxx"
+}
+# To get jwt token, login: http://localhost:8000/api/login, method: post
+{
+    "email":"xxx@gmail.com",
+    "password":"xxx"
+}
 
-## Contributing
+# Products End point:
+    1. http://localhost:8000/api/product, method: get
+    2. http://localhost:8000/api/product/:id, method: get
+    3. http://localhost:8000/api/product, method: post
+    4. http://localhost:8000/api/product/:id, method: put
+    5. http://localhost:8000/api/product/:id, method: delete
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This software is licensed under the [MIT license](https://opensource.org/licenses/MIT).
