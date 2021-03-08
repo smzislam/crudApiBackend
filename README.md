@@ -21,8 +21,8 @@ use "php -S localhost:8000 -t public" to run the api
 ### Products End point:
     1. http://localhost:8000/api/product, method: get
     2. http://localhost:8000/api/product/:id, method: get
-    3. http://localhost:8000/api/product, method: post
-    4. http://localhost:8000/api/product/:id, method: put
+    3. http://localhost:8000/api/product, method: post (for insert)
+    4. http://localhost:8000/api/product/:id, method: post (for update)
     5. http://localhost:8000/api/product/:id, method: delete
 
 
