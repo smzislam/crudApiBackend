@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 use  App\Models\Product;
 
 class ProductController extends Controller
@@ -84,7 +85,7 @@ class ProductController extends Controller
                     
                     $path=$file->move( $destinationPath, $newFilename);
     
-                    $imageurl= "upload/".$newFilename;
+                    $imageurl= url("upload/".$newFilename);
                    
                 }
             }else{
@@ -113,20 +114,56 @@ class ProductController extends Controller
      * @return Response
      */
     public function updateProduct(Request $request, $id){
+        //validate incoming request 
+        $this->validate($request, [
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|regex:/^-?[0-9]+(?:\.[0-9]{1,2})?$/'
+        ]);
 
+       
         try {
+            
+            if($request->hasFile('image')){
+                $allowedfileExtension=['jpg','png','gif'];
+                $file = $request->file('image');
+            
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+
+                $newFilename= time().$filename;
+
+                $destinationPath = public_path('upload');
+
+                $check=in_array($extension,$allowedfileExtension);
+                if($check){
+                    
+                    $path=$file->move( $destinationPath, $newFilename);
+    
+                    //$imageurl= "public/upload/".$newFilename;
+                    $imageurl= url("upload/".$newFilename);
+
+
+                   
+                }
+            }else{
+                $imageurl=$request->image;
+            }
             $product= Product::find($id);
             $product->title = $request->title;
             $product->description = $request->description;
             $product->price = $request->price;
-            $product->image = $request->image;
+            $product->image = $imageurl;
+
             $product->save();
+
             //return successful response
             return response()->json(['product' => $product, 'message' => 'Product updated successfully.'], 201);
         } catch (\Exception $e) {
             //return error message
             return response()->json(['message' => 'Failed to update product!'], 409);
         }
+        
 
     }
 
