@@ -5,7 +5,7 @@ It's a restful api with Jwt Authentication using Laravel Lumen. (It's front end 
 
 use "php -S localhost:8000 -t public" to run the api
 
-## End point
+## End points
 
 ### To create user: http://localhost:8000/api/register, method: post
 {
@@ -19,7 +19,7 @@ use "php -S localhost:8000 -t public" to run the api
     "password":"xxx"
 }
 
-### Products End point:
+### Products End points:
     1. http://localhost:8000/api/product, method: get
     2. http://localhost:8000/api/product/:id, method: get
     3. http://localhost:8000/api/product, method: post (for insert)
